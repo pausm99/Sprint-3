@@ -292,6 +292,56 @@ describe('Function "orderByYear"', () => {
 
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
+describe('Function "moviesAverageByCategory"', () => {
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
+  });
+
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Stanley Kubrick')).toBe('number');
+  });
+
+  it('should be different from NaN', () => {
+    expect(moviesAverageByCategory(movies, 'Stanley Kubrick')).not.toBeNaN();
+  });
+
+  it(' should return the average score of movies selecting only the category. With 2 decimals! ', () => {
+    expect(moviesAverageByCategory([
+      {
+        title: 'Paths of Glory',
+        year: 1957,
+        director: 'Stanley Kubrick',
+        duration: '1h 28min',
+        genre: ['Drama', 'War'],
+        score: 8.4
+      },
+      {
+        title: 'Django Unchained',
+        year: 2012,
+        director: 'Quentin Tarantino',
+        duration: '2h 45min',
+        genre: ['Drama', 'Western'],
+        score: 8.4
+      },
+      {
+        title: 'Pulp Fiction',
+        year: 1994,
+        director: 'Quentin Tarantino',
+        duration: '2h 34min',
+        genre: ['Crime', 'Drama'],
+        score: 8.9
+      },
+      {
+        title: 'Le fabuleux destin d"Amélie Poulain',
+        year: 2001,
+        director: 'Jean-Pierre Jeunet',
+        duration: '2h 2min',
+        genre: ['Comedy', 'Romance'],
+        score: 8.4
+      }
+    ], 'Drama')).toBe(8.57);
+  });
+});
 
 
 // Exercise 7
